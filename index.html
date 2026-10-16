@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوة زفاف أحمد ونورهان</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-gold: #c5a059;
+            --dark-gold: #8c6d30;
+            --light-gold: #f4e8c1;
+            --bg-cream: #faf7f2;
+            --text-dark: #2c2c2c;
+            --text-muted: #555555;
+            --white: #ffffff;
+            --shadow-soft: 0 10px 30px rgba(197, 160, 89, 0.15);
+            --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 10px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#c5a059 0.75px, transparent 0.75px), radial-gradient(#c5a059 0.75px, #faf7f2 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.12;
+            z-index: -1;
+        }
+
+        #petals-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 99;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            background: linear-gradient(135deg, #f7cad0, #e8b4b8);
+            border-radius: 150% 0 150% 0;
+            opacity: 0.7;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.8; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0.2; }
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 580px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            border: 2px solid rgba(197, 160, 89, 0.35);
+            box-shadow: var(--shadow-card), 0 0 0 10px rgba(197, 160, 89, 0.05);
+            padding: 45px 28px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: cardAppear 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .corner-decoration {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--primary-gold);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .top-left { top: 16px; left: 16px; border-right: none; border-bottom: none; border-top-left-radius: 14px; }
+        .top-right { top: 16px; right: 16px; border-left: none; border-bottom: none; border-top-right-radius: 14px; }
+        .bottom-left { bottom: 16px; left: 16px; border-right: none; border-top: none; border-bottom-left-radius: 14px; }
+        .bottom-right { bottom: 16px; right: 16px; border-left: none; border-top: none; border-bottom-right-radius: 14px; }
+
+        .music-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--light-gold);
+            border: 1px solid var(--primary-gold);
+            color: var(--dark-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+            background: var(--primary-gold);
+            color: var(--white);
+        }
+
+        .welcome-english {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .image-banner {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            margin: 15px 0 25px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .image-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .couples-names-en {
+            font-family: 'Great Vibes', cursive, 'Amiri', serif;
+            font-size: 3rem;
+            color: #1a1a1a;
+            margin: 10px 0 5px;
+        }
+
+        .romantic-quote {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-gold);
+            margin: 10px 0 20px;
+            background: rgba(244, 232, 193, 0.3);
+            padding: 8px 15px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .details-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .detail-item {
+            background: rgba(244, 232, 193, 0.22);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 16px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .detail-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
+        }
+
+        .detail-text { text-align: right; }
+        .detail-text h4 { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; margin-bottom: 2px; }
+        .detail-text p { font-size: 1rem; color: var(--text-dark); font-weight: 700; }
+
+        .countdown-section {
+            margin: 25px 0;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 18px 12px;
+            border: 1px dashed rgba(197, 160, 89, 0.5);
+        }
+
+        .countdown-title { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 600; }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            direction: ltr;
+        }
+
+        .countdown-box {
+            background: var(--white);
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            border-radius: 12px;
+            padding: 8px;
+            min-width: 62px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .countdown-value { font-size: 1.35rem; font-weight: 700; color: var(--dark-gold); display: block; line-height: 1.2; }
+        .countdown-label { font-size: 0.7rem; color: var(--text-muted); margin-top: 3px; display: block; }
+
+        .rsvp-section {
+            background: #fff;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+        }
+
+        .rsvp-title { font-size: 1rem; color: var(--dark-gold); font-weight: 700; margin-bottom: 12px; }
+        .rsvp-form { display: flex; flex-direction: column; gap: 10px; }
+
+        .form-input {
+            width: 100%;
+            padding: 11px 15px;
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            border-radius: 10px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+        }
+
+        .actions-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 14px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--white);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 22px rgba(197, 160, 89, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--dark-gold);
+            border: 1px solid var(--primary-gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-gold);
+            transform: translateY(-2px);
+        }
+
+        .footer-note {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-family: 'Amiri', serif;
+            font-style: italic;
+        }
+
+        @keyframes cardAppear {
+            from { opacity: 0; transform: translateY(30px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @media (max-width: 480px) {
+            .card-container { padding: 35px 18px; }
+            .couples-names-en { font-size: 2.5rem; }
+            .romantic-quote { font-size: 1.25rem; }
+            .countdown-box { min-width: 55px; padding: 6px 3px; }
+            .countdown-value { font-size: 1.15rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-pattern"></div>
+    <div id="petals-container"></div>
+
+    <div class="card-container">
+        <!-- زر الموسيقى -->
+        <button class="music-btn" onclick="toggleAudio()" title="تشغيل / إيقاف الموسيقى">
+            <i class="fa-solid fa-music" id="music-icon"></i>
+        </button>
+
+        <div class="corner-decoration top-left"></div>
+        <div class="corner-decoration top-right"></div>
+        <div class="corner-decoration bottom-left"></div>
+        <div class="corner-decoration bottom-right"></div>
+
+        <div class="welcome-english">WELCOME TO OUR WEDDING</div>
+
+        <!-- صورة الدعوة -->
+        <div class="image-banner">
+            <img src="wedding-card.png" alt="Ahmed & Norhan Wedding Card" id="wedding-card-img">
+        </div>
+
+        <div class="couples-names-en">Ahmed & Norhan</div>
+
+        <!-- عبارة الغزل الخاصة -->
+        <div class="romantic-quote">
+            ♡ أحمد هيعيش مع نور عينه ♡
+        </div>
+
+        <div class="details-grid">
+            <div class="detail-item">
+                <div class="detail-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                <div class="detail-text">
+                    <h4>التاريخ</h4>
+                    <p>الجمعة، 13 / 11 / 2026</p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-icon"><i class="fa-regular fa-clock"></i></div>
+                <div class="detail-text">
+                    <h4>التوقيت</h4>
+                    <p>من الساعة 4:00 عصراً إلى 6:00 مساءً</p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="detail-text">
+                    <h4>المكان</h4>
+                    <p>قاعة لافيستا - At La Vista Hall (مدينة السلام)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="countdown-section">
+            <div class="countdown-title">المتبقي على الليلة الموعودة:</div>
+            <div class="countdown-container">
+                <div class="countdown-box"><span class="countdown-value" id="seconds">00</span><span class="countdown-label">ثانية</span></div>
+                <div class="countdown-box"><span class="countdown-value" id="minutes">00</span><span class="countdown-label">دقيقة</span></div>
+                <div class="countdown-box"><span class="countdown-value" id="hours">00</span><span class="countdown-label">ساعة</span></div>
+                <div class="countdown-box"><span class="countdown-value" id="days">00</span><span class="countdown-label">يوم</span></div>
+            </div>
+        </div>
+
+        <!-- قسم تأكيد الحضور -->
+        <div class="rsvp-section">
+            <div class="rsvp-title"><i class="fa-regular fa-envelope"></i> تأكيد الحضور</div>
+            <form class="rsvp-form" onsubmit="handleRSVP(event)">
+                <input type="text" id="guest-name" class="form-input" placeholder="اسم الحاضر" required>
+                <select id="guest-count" class="form-input">
+                    <option value="1">شخص واحد</option>
+                    <option value="2">شخصين</option>
+                    <option value="3">3 أشخاص</option>
+                    <option value="4+">4 أشخاص أو أكثر</option>
+                </select>
+                <button type="submit" class="btn btn-primary" style="padding: 11px; font-size: 0.9rem;">
+                    تأكيد الحضور وإرسال للواتساب
+                </button>
+            </form>
+        </div>
+
+        <div class="actions-container">
+            <a href="https://maps.google.com/?q=قاعة+لافيستا+مدينة+السلام" target="_blank" class="btn btn-primary">
+                <i class="fa-solid fa-map-location-dot"></i>
+                موقع القاعة على الخريطة
+            </a>
+            <button onclick="addToCalendar()" class="btn btn-secondary">
+                <i class="fa-regular fa-calendar-plus"></i>
+                إضافة إلى التقويم
+            </button>
+            <button onclick="shareInvitation()" class="btn btn-secondary">
+                <i class="fa-solid fa-share-nodes"></i>
+                مشاركة الدعوة بالكامل
+            </button>
+        </div>
+
+        <div class="footer-note">
+            حضوركم يسعدنا وتكتمل به فرحتنا ✨
+        </div>
+    </div>
+
+    <audio id="wedding-audio" loop src="alleyla.mp3"></audio>
+
+    <script>
+        const MY_WHATSAPP_NUMBER = "201000000000"; 
+
+        const targetDate = new Date("November 13, 2026 16:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+                document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+                document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+            } else {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        function createPetals() {
+            const container = document.getElementById('petals-container');
+            for (let i = 0; i < 15; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+                const size = Math.random() * 12 + 10;
+                petal.style.width = `${size}px`;
+                petal.style.height = `${size}px`;
+                petal.style.left = `${Math.random() * 100}%`;
+                petal.style.animationDuration = `${Math.random() * 6 + 6}s`;
+                petal.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(petal);
+            }
+        }
+        createPetals();
+
+        let isPlaying = false;
+        function toggleAudio() {
+            const audio = document.getElementById('wedding-audio');
+            const icon = document.getElementById('music-icon');
+            if (isPlaying) {
+                audio.pause();
+                icon.className = 'fa-solid fa-music';
+            } else {
+                audio.play().catch(e => {
+                    alert('يرجى التأكد من وجود ملف alleyla.mp3 في نفس المجلد.');
+                });
+                icon.className = 'fa-solid fa-volume-high';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function handleRSVP(e) {
+            e.preventDefault();
+            const name = document.getElementById('guest-name').value;
+            const count = document.getElementById('guest-count').value;
+            const msg = `أهلاً يا عريس، أنا (${name}) بأكدلك حضوري لحفل زفاف أحمد ونورهان يوم 13 نوفمبر بقاعة لافيستا (عدد الأفراد: ${count}). ألف مبروك!`;
+            
+            window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function addToCalendar() {
+            const title = encodeURIComponent("حفل زفاف أحمد ونورهان");
+            const details = encodeURIComponent("حضور حفل زفاف أحمد ونورهان بقاعة لافيستا بمدينة السلام");
+            const location = encodeURIComponent("قاعة لافيستا - مدينة السلام");
+            const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261113T140000Z/20261113T160000Z&details=${details}&location=${location}`;
+            window.open(url, '_blank');
+        }
+
+        // مشاركة رابط الصفحة التفاعلية الكاملة للدعوة
+        function shareInvitation() {
+            const pageUrl = window.location.href;
+            const shareTitle = 'دعوة زفاف أحمد ونورهان ✨';
+            const shareText = `تفضلوا بفتح وتصفح دعوة زفاف أحمد ونورهان التفاعلية:\n\n${pageUrl}\n\n📍 قاعة لافيستا - مدينة السلام\n📅 الجمعة 13 / 11 / 2026 (الساعة 4:00 عصراً)`;
+
+            if (navigator.share && pageUrl.startsWith('http')) {
+                navigator.share({
+                    title: shareTitle,
+                    text: 'دعوة زفاف أحمد ونورهان ✨',
+                    url: pageUrl
+                }).catch(err => copyFallback(shareText));
+            } else {
+                copyFallback(shareText);
+            }
+        }
+
+        function copyFallback(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('تم نسخ رابط الدعوة بالكامل بنجاح! يمكنك الآن لصقها وإرسالها عبر الواتساب لتفتح صفحة الدعوة مباشرة.');
+                }).catch(() => {
+                    prompt('قم بنسخ رابط الدعوة:', text);
+                });
+            } else {
+                prompt('قم بنسخ رابط الدعوة:', text);
+            }
+        }
+    </script>
+</body>
+</html>

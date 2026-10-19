@@ -345,7 +345,6 @@
     <div id="petals-container"></div>
 
     <div class="card-container">
-        <!-- زر الموسيقى -->
         <button class="music-btn" onclick="toggleAudio()" title="تشغيل / إيقاف الموسيقى">
             <i class="fa-solid fa-music" id="music-icon"></i>
         </button>
@@ -357,14 +356,12 @@
 
         <div class="welcome-english">WELCOME TO OUR WEDDING</div>
 
-        <!-- صورة الدعوة -->
         <div class="image-banner">
             <img src="wedding-card.png" alt="Ahmed & Norhan Wedding Card" id="wedding-card-img">
         </div>
 
         <div class="couples-names-en">Ahmed & Norhan</div>
 
-        <!-- عبارة الغزل الخاصة -->
         <div class="romantic-quote">
             ♡ أحمد هيعيش مع نور عينه ♡
         </div>
@@ -390,7 +387,7 @@
                 <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
                 <div class="detail-text">
                     <h4>المكان</h4>
-                    <p>قاعة لافيستا - At La Vista Hall (مدينة السلام)</p>
+                    <p>قاعة لاڤيستا - نادي 6 أكتوبر (مدينة السلام)</p>
                 </div>
             </div>
         </div>
@@ -405,7 +402,6 @@
             </div>
         </div>
 
-        <!-- قسم تأكيد الحضور -->
         <div class="rsvp-section">
             <div class="rsvp-title"><i class="fa-regular fa-envelope"></i> تأكيد الحضور</div>
             <form class="rsvp-form" onsubmit="handleRSVP(event)">
@@ -423,9 +419,10 @@
         </div>
 
         <div class="actions-container">
-            <a href="https://maps.google.com/?q=قاعة+لافيستا+مدينة+السلام" target="_blank" class="btn btn-primary">
+            <!-- رابط الخريطة المباشر المخصص لقاعة لافيستا بنادي 6 أكتوبر في مدينة السلام -->
+            <a href="https://maps.google.com/?q=قاعة+لافيستا+نادي+6+أكتوبر+مدينة+السلام" target="_blank" class="btn btn-primary">
                 <i class="fa-solid fa-map-location-dot"></i>
-                موقع القاعة على الخريطة
+                موقع القاعة على الخريطة (نادي 6 أكتوبر)
             </a>
             <button onclick="addToCalendar()" class="btn btn-secondary">
                 <i class="fa-regular fa-calendar-plus"></i>
@@ -445,7 +442,7 @@
     <audio id="wedding-audio" loop src="alleyla.mp3"></audio>
 
     <script>
-        const MY_WHATSAPP_NUMBER = "201000000000"; 
+        const MY_WHATSAPP_NUMBER = "201064327036"; 
 
         const targetDate = new Date("November 13, 2026 16:00:00").getTime();
 
@@ -510,29 +507,28 @@
             e.preventDefault();
             const name = document.getElementById('guest-name').value;
             const count = document.getElementById('guest-count').value;
-            const msg = `أهلاً يا عريس، أنا (${name}) بأكدلك حضوري لحفل زفاف أحمد ونورهان يوم 13 نوفمبر بقاعة لافيستا (عدد الأفراد: ${count}). ألف مبروك!`;
+            const msg = `أهلاً يا عريس، أنا (${name}) بأكدلك حضوري لحفل زفاف أحمد ونورهان يوم 13 نوفمبر بقاعة لافيستا (نادي 6 أكتوبر - مدينة السلام) - (عدد الأفراد: ${count}). ألف مبروك!`;
             
             window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
         function addToCalendar() {
             const title = encodeURIComponent("حفل زفاف أحمد ونورهان");
-            const details = encodeURIComponent("حضور حفل زفاف أحمد ونورهان بقاعة لافيستا بمدينة السلام");
-            const location = encodeURIComponent("قاعة لافيستا - مدينة السلام");
+            const details = encodeURIComponent("حضور حفل زفاف أحمد ونورهان بقاعة لافيستا بنادي 6 أكتوبر - مدينة السلام");
+            const location = encodeURIComponent("قاعة لافيستا - نادي 6 أكتوبر، مدينة السلام");
             const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261113T140000Z/20261113T160000Z&details=${details}&location=${location}`;
             window.open(url, '_blank');
         }
 
-        // مشاركة رابط الصفحة التفاعلية الكاملة للدعوة
         function shareInvitation() {
             const pageUrl = window.location.href;
             const shareTitle = 'دعوة زفاف أحمد ونورهان ✨';
-            const shareText = `تفضلوا بفتح وتصفح دعوة زفاف أحمد ونورهان التفاعلية:\n\n${pageUrl}\n\n📍 قاعة لافيستا - مدينة السلام\n📅 الجمعة 13 / 11 / 2026 (الساعة 4:00 عصراً)`;
+            const shareText = `تفضلوا بفتح وتصفح دعوة زفاف أحمد ونورهان التفاعلية:\n\n${pageUrl}\n\n📍 قاعة لافيستا - نادي 6 أكتوبر (مدينة السلام)\n📅 الجمعة 13 / 11 / 2026 (الساعة 4:00 عصراً)`;
 
             if (navigator.share && pageUrl.startsWith('http')) {
                 navigator.share({
                     title: shareTitle,
-                    text: 'دعوة زفاف أحمد ونورهان ✨',
+                    text: shareText,
                     url: pageUrl
                 }).catch(err => copyFallback(shareText));
             } else {
@@ -543,7 +539,7 @@
         function copyFallback(text) {
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(() => {
-                    alert('تم نسخ رابط الدعوة بالكامل بنجاح! يمكنك الآن لصقها وإرسالها عبر الواتساب لتفتح صفحة الدعوة مباشرة.');
+                    alert('تم نسخ رابط الدعوة بالكامل بنجاح!');
                 }).catch(() => {
                     prompt('قم بنسخ رابط الدعوة:', text);
                 });
